@@ -85,19 +85,19 @@ typedef void (*fcgi_apply_func)(char *var, unsigned int var_len, char *val, unsi
 
 typedef struct _fcgi_request fcgi_request;
 
-int fcgi_init(void);
+int  fcgi_init(void);
 void fcgi_shutdown(void);
-int fcgi_is_fastcgi(void);
-int fcgi_is_closed(fcgi_request *req);
+int  fcgi_is_fastcgi(void);
+int  fcgi_is_closed(fcgi_request *req);
 void fcgi_close(fcgi_request *req, int force, int destroy);
-int fcgi_in_shutdown(void);
+int  fcgi_in_shutdown(void);
 void fcgi_terminate(void);
-int fcgi_listen(const char *path, int backlog);
+int  fcgi_listen(const char *path, int backlog);
 fcgi_request* fcgi_init_request(int listen_socket, void(*on_accept)(), void(*on_read)(), void(*on_close)());
 void fcgi_destroy_request(fcgi_request *req);
 void fcgi_set_allowed_clients(char *ip);
-int fcgi_accept_request(fcgi_request *req);
-int fcgi_finish_request(fcgi_request *req, int force_close);
+int  fcgi_accept_request(fcgi_request *req);
+int  fcgi_finish_request(fcgi_request *req, int force_close);
 const char *fcgi_get_last_client_ip();
 void fcgi_set_in_shutdown(int new_value);
 void fcgi_request_set_keep(fcgi_request *req, int new_value);
